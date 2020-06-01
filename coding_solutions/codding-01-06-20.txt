@@ -1,0 +1,86 @@
+Program 1)After getting her PhD, Christie has become a celebrity at her university, and her facebook profile is full of friend requests. Being the nice girl she is, Christie has accepted all the requests.
+
+Now Kuldeep is jealous of all the attention she is getting from other guys, so he asks her to delete some of the guys from her friend list.
+
+To avoid a 'scene', Christie decides to remove some friends from her friend list, since she knows the popularity of each of the friend she has, she uses the following algorithm to delete a friend.
+
+Algorithm Delete(Friend):
+    DeleteFriend=false
+    for i = 1 to Friend.length-1
+         if (Friend[i].popularity < Friend[i+1].popularity)
+            delete i th friend
+            DeleteFriend=true
+            break
+    if(DeleteFriend == false)
+        delete the last friend
+
+Input:
+First line contains T number of test cases. First line of each test case contains N, the number of friends Christie currently has and K ,the number of friends Christie decides to delete. Next lines contains popularity of her friends separated by space.
+
+Output:
+For each test case print N-K numbers which represent popularity of Christie friend's after deleting K friends.
+
+Constraints
+1<=T<=1000
+1<=N<=100000
+0<=K< N
+0<=popularity_of_friend<=100
+
+
+#include <bits/stdc++.h>
+using namespace std;
+void arrange(int arr[], int n, int x)
+{
+	int i, j;
+ 
+	if(x==n)
+		return;
+	for(j=x; j<=n-1; j++)
+		arr[j]=	arr[j+1];
+}
+int main(void)
+{
+	int T;
+	cin>>T;
+	while(T--)
+	{
+		int n, k;
+		cin>>n>>k;
+		int arr[n+1], i, count=0, temp=0;
+ 
+		for(i=1; i<=n; i++)
+			cin>>arr[i];
+ 
+		for(i=1; i<=n-1; i++)
+		{
+			if(arr[i]<arr[i+1])
+			{
+				arr[i]=-1;
+				arrange(arr, n, i);
+				--n;
+				count++;
+				temp++;
+			}
+			if(count==k)
+				break;
+			if(i==n-1)
+			{
+				if(count<k  && temp!=0)
+				{
+					// printlist(arr, n);
+					temp=0;
+					i=0;
+				}
+				else
+					break;
+			}
+		}
+		while(count!=k)
+			--n;
+		for(i=1; i<=n; i++)
+			cout<<arr[i]<<" ";
+		cout<<"\n";
+	}
+ 
+	return 0;
+}
