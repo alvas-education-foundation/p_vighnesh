@@ -1,0 +1,24 @@
+Program 1)Python rogram to find the SHA-1 message digest of a file
+
+import hashlib
+
+def hash_file(filename):
+
+   h = hashlib.sha1()
+
+   with open(filename,'rb') as file:
+
+       chunk = 0
+       while chunk != b'':
+           # read only 1024 bytes at a time
+           chunk = file.read(1024)
+           h.update(chunk)
+
+   return h.hexdigest()
+
+message = hash_file("track1.mp3")
+print(message)
+
+Output
+
+633d7356947eec543c50b76a1852f92427f4dca9
