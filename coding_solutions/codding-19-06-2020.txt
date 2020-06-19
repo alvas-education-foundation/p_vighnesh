@@ -1,0 +1,18 @@
+Program1) R program to fid the factorial of a number.
+
+num = as.integer(readline(prompt="Enter a number: "))
+factorial = 1
+if(num < 0) {
+print("Sorry, factorial does not exist for negative numbers")
+} else if(num == 0) {
+print("The factorial of 0 is 1")
+} else {
+for(i in 1:num) {
+factorial = factorial * i
+}
+print(paste("The factorial of", num ,"is",factorial))
+}
+Output
+
+Enter a number: 8
+[1] "The factorial of 8 is 40320"
