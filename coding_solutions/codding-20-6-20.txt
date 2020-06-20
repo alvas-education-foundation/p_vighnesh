@@ -1,0 +1,22 @@
+Program 1)C# program to illustrate the usage 
+
+using System; 
+using System.IO; 
+  
+class GFG { 
+    static void Main() 
+    { 
+        try { 
+        
+            File.Move(@"file.txt", @"C:\vighnesh\gfg.txt"); 
+            Console.WriteLine("Moved"); 
+        } 
+        catch (IOException ex) { 
+            Console.WriteLine(ex); 
+        } 
+    } 
+}
+ 
+Output:
+
+Moved
