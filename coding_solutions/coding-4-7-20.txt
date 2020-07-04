@@ -1,0 +1,16 @@
+Program 1) Given an array arr[] containing integers of size N, the task is to find the XOR of this array.
+
+public class pro_one {
+    public static void main(String args[]){
+        int a[]={3,9,12,13,15};
+        int c=a[0];
+        for(int i=1;i<a.length;i++){
+            c=c^a[i];
+
+        }
+        System.out.println("The XOR value of array elements is:"+c);
+        
+    }
+}
+
+The XOR value of array is:4
